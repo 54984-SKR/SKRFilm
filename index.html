@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>
+  ระบบยืมกล้อง S.K.R. Film
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset และ box-sizing ทั่วไป */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: 'Noto Sans Thai', sans-serif;
+      background: url('Screenshot 2025-05-29 at 4.25.22 PM.png') no-repeat center center fixed;
+      background-size: cover;
+
+      /* ใช้ flexbox เพื่อจัดกึ่งกลางแนวตั้ง-แนวนอน */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('Screenshot 2025-05-29 at 4.25.22 PM.png') no-repeat center center fixed;
+      background-size: cover;
+      z-index: -1;
+      filter: blur(10px);
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border: 1px solid #ccc;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #4A90E2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #357ABD;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #fff;
+      font-family: 'Noto Sans Thai', sans-serif;
+      user-select: none;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 6px 0;
+    }
+
+    .abr .a {
+      color: red;
+    }
+
+    .abr .b {
+      color: blue;
+    }
+
+    .abr .r {
+      color: green;
+    }
+
+    .sonram {
+      color: red;
+    }
+
+    .footer-logos {
+      position: fixed;
+      bottom: 40px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .footer-logos img {
+      height: 80px;
+      margin: 0 8px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>ระบบยืมกล้อง S.K.R. Film</h2>
+    <form id="borrowForm">
+      <label for="studentID">เลขประจำตัวนักเรียน:</label>
+      <input type="text" id="studentID" name="studentID" required>
+
+      <label for="date">วันที่ยืม:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="startTime">เวลาเริ่มต้น:</label>
+      <input type="time" id="startTime" name="startTime" required>
+
+      <label for="endTime">เวลาสิ้นสุด:</label>
+      <input type="time" id="endTime" name="endTime" required>
+
+      <button type="submit">ส่งคำขอยืม</button>
+    </form>
+  </div>
+  <div class="footer-logos">
+    <img src="1.png" alt="Logo 1" />
+    <img src="2.png" alt="Logo 2" />
+    <img src="3.png" alt="Logo 3" />
+  </div>
+  <footer>
+    © 2025 , made with ❤️ by 
+    <span class="abr"><span class="a">A</span><span class="b">B</span><span class="r">R</span></span> , 
+    ทีม<span class="sonram">Sonram</span> Film โรงเรียนสกลราชวิทยานุกูล
+  </footer>
+</body>
+<script>
+const students = {
+  "56275": { name: "รัฐนันท์ ชานันโท", room: "1/6", no: "14" },
+  "56393": { name: "พัฒนทรัพย์ พรหมสาขา ณ สกลนคร", room: "1/9", no: "12" },
+  "55322": { name: "ปัณณวัฒน์ สกุลคุณาทิพย์", room: "2/1", no: "14" },
+  "55418": { name: "ภคพร ชินอาจ", room: "2/3", no: "30" },
+  "55447": { name: "คุ้มขวัญญ์ โทบุราณ", room: "2/4", no: "19" },
+  "55459": { name: "พัณณ์ชุดา ศรีวัฒน์อัคร", room: "2/4", no: "31" },
+  "55567": { name: "กัญญารัตน์ นามวงค์ชัย", room: "2/7", no: "19" },
+  "55572": { name: "ณัฐรดา ขุมเงิน", room: "2/7", no: "24" },
+  "55578": { name: "นิษฐา พรมไพสน", room: "2/7", no: "30" },
+  "55580": { name: "ปัณทิตา ปานะวิเศษ", room: "2/7", no: "32" },
+  "55583": { name: "ภิญญาพัชญ์ บุตรสิงขรณ์", room: "2/7", no: "35" },
+  "55668": { name: "เหมือนฝัน พันเพียง", room: "2/9", no: "39" },
+  "54588": { name: "ชรินทร์ทิพย์ พรรณธรรม", room: "3/2", no: "20" },
+  "54595": { name: "เบญญาภา นามนรุ่งฤทธิ์", room: "3/2", no: "27" },
+  "54635": { name: "บุญญปัญญ์ ขันทีท้าว", room: "3/3", no: "27" },
+  "54772": { name: "ชวัลวิทย์ รุจิโรจน์อำไพ", room: "3/7", no: "4" },
+  "54779": { name: "แผ่นดิน อิ่มโพ", room: "3/7", no: "11" },
+  "54807": { name: "อมลรดา บุญพูน", room: "3/7", no: "39" },
+  "54818": { name: "ภูสิษฐ์ พ่อค้าช้าง", room: "3/8", no: "10" },
+  "54903": { name: "ศุภวัฒน์ กุกำจัด", room: "3/10", no: "15" },
+  "54929": { name: "ชนินทร์ แสนบรรดิษฐ์", room: "3/11", no: "1" },
+  "54941": { name: "ภามพิสุทธิ์ ศิระจิราวัชร์", room: "3/11", no: "12" },
+  "54984": { name: "ภาคิน เดชภูมี", room: "3/12", no: "16" },
+  "54986": { name: "รามณ์ โทบุราณ", room: "3/12", no: "18" },
+  "54485": { name: "ณโม พงศ์นราทร", room: "3/15", no: "8" }
+};
+
+document.getElementById("borrowForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const studentID = document.getElementById("studentID").value.trim();
+  const date = document.getElementById("date").value;
+  const startTime = document.getElementById("startTime").value;
+  const endTime = document.getElementById("endTime").value;
+
+  const student = students[studentID];
+  if (!student) {
+    alert("ไม่พบเลขประจำตัวนักเรียนในระบบ");
+    return;
+  }
+
+  const message = `
+📷 **คำขอยืมกล้อง**
+👤 ชื่อ: ${student.name}
+🧑‍🏫 ห้อง: ${student.room} เลขที่: ${student.no}
+🆔 เลขประจำตัว: ${studentID}
+📅 วันที่ยืม: ${date}
+🕒 เวลา: ${startTime} - ${endTime}
+  `;
+
+  await fetch("https://discord.com/api/webhooks/1377589232578596874/BUbcVluNa3Kagxsamh8Ls6G2ig6yUjfejHsocf8EWSt4Ha5enu1JhEbYYqCCbECqA1OC", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ content: message })
+  });
+
+  alert("ส่งคำขอยืมเรียบร้อยแล้ว!");
+  e.target.reset();
+});
+</script>
+</html>
