@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/png" href="2.png" />
-  <title>S.K.R. Film</title>
+  <title>ระบบยืมกล้อง S.K.R. Film</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> -->
   <style>
     *,
     *::before,
@@ -102,21 +103,10 @@
       padding: 6px 0;
     }
 
-    .abr .a {
-      color: red;
-    }
-
-    .abr .b {
-      color: blue;
-    }
-
-    .abr .r {
-      color: green;
-    }
-
-    .sonram {
-      color: red;
-    }
+    .abr .a { color: red; }
+    .abr .b { color: blue; }
+    .abr .r { color: green; }
+    .sonram { color: red; }
 
     .footer-logos {
       position: fixed;
@@ -144,10 +134,63 @@
       <input type="date" id="date" name="date" required>
 
       <label for="startTime">เวลาเริ่มต้น:</label>
-      <input type="time" id="startTime" name="startTime" required>
+      <select id="startTime" name="startTime" required>
+        <option value="">-- เลือกเวลา --</option>
+        <optgroup label="ช่วงเช้า">
+          <option value="08:00">08:00</option>
+          <option value="08:30">08:30</option>
+          <option value="09:00">09:00</option>
+          <option value="09:30">09:30</option>
+          <option value="10:00">10:00</option>
+          <option value="10:30">10:30</option>
+          <option value="11:00">11:00</option>
+          <option value="11:30">11:30</option>
+          <option value="12:00">12:00</option>
+          <option value="12:30">12:30</option>
+        </optgroup>
+        <optgroup label="ช่วงบ่าย">
+          <option value="13:00">13:00</option>
+          <option value="13:30">13:30</option>
+          <option value="14:00">14:00</option>
+          <option value="14:30">14:30</option>
+          <option value="15:00">15:00</option>
+          <option value="15:30">15:30</option>
+          <option value="16:00">16:00</option>
+          <option value="16:30">16:30</option>
+          <option value="17:00">17:00</option>
+          <option value="17:30">17:30</option>
+          <option value="18:00">18:00</option>
+        </optgroup>
+      </select>
 
       <label for="endTime">เวลาสิ้นสุด:</label>
-      <input type="time" id="endTime" name="endTime" required>
+      <select id="endTime" name="endTime" required>
+        <option value="">-- เลือกเวลา --</option>
+        <optgroup label="ช่วงเช้า">
+          <option value="08:30">08:30</option>
+          <option value="09:00">09:00</option>
+          <option value="09:30">09:30</option>
+          <option value="10:00">10:00</option>
+          <option value="10:30">10:30</option>
+          <option value="11:00">11:00</option>
+          <option value="11:30">11:30</option>
+          <option value="12:00">12:00</option>
+          <option value="12:30">12:30</option>
+        </optgroup>
+        <optgroup label="ช่วงบ่าย">
+          <option value="13:00">13:00</option>
+          <option value="13:30">13:30</option>
+          <option value="14:00">14:00</option>
+          <option value="14:30">14:30</option>
+          <option value="15:00">15:00</option>
+          <option value="15:30">15:30</option>
+          <option value="16:00">16:00</option>
+          <option value="16:30">16:30</option>
+          <option value="17:00">17:00</option>
+          <option value="17:30">17:30</option>
+          <option value="18:00">18:00</option>
+        </optgroup>
+      </select>
 
       <button type="submit">ส่งคำขอยืม</button>
     </form>
@@ -162,66 +205,66 @@
     <span class="abr"><span class="a">A</span><span class="b">B</span><span class="r">R</span></span> , 
     ทีม<span class="sonram">Sonram</span> Film โรงเรียนสกลราชวิทยานุกูล
   </footer>
-</body>
-<script>
-const students = {
-  "56275": { name: "รัฐนันท์ ชานันโท", room: "1/6", no: "14" },
-  "56393": { name: "พัฒนทรัพย์ พรหมสาขา ณ สกลนคร", room: "1/9", no: "12" },
-  "55322": { name: "ปัณณวัฒน์ สกุลคุณาทิพย์", room: "2/1", no: "14" },
-  "55418": { name: "ภคพร ชินอาจ", room: "2/3", no: "30" },
-  "55447": { name: "คุ้มขวัญญ์ โทบุราณ", room: "2/4", no: "19" },
-  "55459": { name: "พัณณ์ชุดา ศรีวัฒน์อัคร", room: "2/4", no: "31" },
-  "55567": { name: "กัญญารัตน์ นามวงค์ชัย", room: "2/7", no: "19" },
-  "55572": { name: "ณัฐรดา ขุมเงิน", room: "2/7", no: "24" },
-  "55578": { name: "นิษฐา พรมไพสน", room: "2/7", no: "30" },
-  "55580": { name: "ปัณทิตา ปานะวิเศษ", room: "2/7", no: "32" },
-  "55583": { name: "ภิญญาพัชญ์ บุตรสิงขรณ์", room: "2/7", no: "35" },
-  "55668": { name: "เหมือนฝัน พันเพียง", room: "2/9", no: "39" },
-  "54588": { name: "ชรินทร์ทิพย์ พรรณธรรม", room: "3/2", no: "20" },
-  "54595": { name: "เบญญาภา นามนรุ่งฤทธิ์", room: "3/2", no: "27" },
-  "54635": { name: "บุญญปัญญ์ ขันทีท้าว", room: "3/3", no: "27" },
-  "54772": { name: "ชวัลวิทย์ รุจิโรจน์อำไพ", room: "3/7", no: "4" },
-  "54779": { name: "แผ่นดิน อิ่มโพ", room: "3/7", no: "11" },
-  "54807": { name: "อมลรดา บุญพูน", room: "3/7", no: "39" },
-  "54818": { name: "ภูสิษฐ์ พ่อค้าช้าง", room: "3/8", no: "10" },
-  "54903": { name: "ศุภวัฒน์ กุกำจัด", room: "3/10", no: "15" },
-  "54929": { name: "ชนินทร์ แสนบรรดิษฐ์", room: "3/11", no: "1" },
-  "54941": { name: "ภามพิสุทธิ์ ศิระจิราวัชร์", room: "3/11", no: "12" },
-  "54984": { name: "ภาคิน เดชภูมี", room: "3/12", no: "16" },
-  "54986": { name: "รามณ์ โทบุราณ", room: "3/12", no: "18" },
-  "54485": { name: "ณโม พงศ์นราทร", room: "3/15", no: "8" }
-};
+  
+  <!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> -->
+  <script>
 
-document.getElementById("borrowForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const studentID = document.getElementById("studentID").value.trim();
-  const date = document.getElementById("date").value;
-  const startTime = document.getElementById("startTime").value;
-  const endTime = document.getElementById("endTime").value;
+    const students = {
+      "56275": { name: "รัฐนันท์ ชานันโท", room: "1/6", no: "14" },
+      "56393": { name: "พัฒนทรัพย์ พรหมสาขา ณ สกลนคร", room: "1/9", no: "12" },
+      "55322": { name: "ปัณณวัฒน์ สกุลคุณาทิพย์", room: "2/1", no: "14" },
+      "55418": { name: "ภคพร ชินอาจ", room: "2/3", no: "30" },
+      "55447": { name: "คุ้มขวัญญ์ โทบุราณ", room: "2/4", no: "19" },
+      "55459": { name: "พัณณ์ชุดา ศรีวัฒน์อัคร", room: "2/4", no: "31" },
+      "55567": { name: "กัญญารัตน์ นามวงค์ชัย", room: "2/7", no: "19" },
+      "55572": { name: "ณัฐรดา ขุมเงิน", room: "2/7", no: "24" },
+      "55578": { name: "นิษฐา พรมไพสน", room: "2/7", no: "30" },
+      "55580": { name: "ปัณทิตา ปานะวิเศษ", room: "2/7", no: "32" },
+      "55583": { name: "ภิญญาพัชญ์ บุตรสิงขรณ์", room: "2/7", no: "35" },
+      "55668": { name: "เหมือนฝัน พันเพียง", room: "2/9", no: "39" },
+      "54588": { name: "ชรินทร์ทิพย์ พรรณธรรม", room: "3/2", no: "20" },
+      "54595": { name: "เบญญาภา นามนรุ่งฤทธิ์", room: "3/2", no: "27" },
+      "54635": { name: "บุญญปัญญ์ ขันทีท้าว", room: "3/3", no: "27" },
+      "54772": { name: "ชวัลวิทย์ รุจิโรจน์อำไพ", room: "3/7", no: "4" },
+      "54779": { name: "แผ่นดิน อิ่มโพ", room: "3/7", no: "11" },
+      "54807": { name: "อมลรดา บุญพูน", room: "3/7", no: "39" },
+      "54818": { name: "ภูสิษฐ์ พ่อค้าช้าง", room: "3/8", no: "10" },
+      "54903": { name: "ศุภวัฒน์ กุกำจัด", room: "3/10", no: "15" },
+      "54929": { name: "ชนินทร์ แสนบรรดิษฐ์", room: "3/11", no: "1" },
+      "54941": { name: "ภามพิสุทธิ์ ศิระจิราวัชร์", room: "3/11", no: "12" },
+      "54984": { name: "ภาคิน เดชภูมี", room: "3/12", no: "16" },
+      "54986": { name: "รามณ์ โทบุราณ", room: "3/12", no: "18" },
+      "54485": { name: "ณโม พงศ์นราทร", room: "3/15", no: "8" }
+    };
 
-  const student = students[studentID];
-  if (!student) {
-    alert("ไม่พบเลขประจำตัวนักเรียนในระบบ");
-    return;
-  }
+    document.getElementById("borrowForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const studentID = document.getElementById("studentID").value.trim();
+      const date = document.getElementById("date").value;
+      const startTime = document.getElementById("startTime").value;
+      const endTime = document.getElementById("endTime").value;
 
-  const message = `
+      if (!students[studentID]) {
+        alert("ไม่พบเลขประจำตัวนักเรียนในระบบ");
+        return;
+      }
+
+      const student = students[studentID];
+      const message = `
 📷 **คำขอยืมกล้อง**
 👤 ชื่อ: ${student.name}
 🧑‍🏫 ห้อง: ${student.room} เลขที่: ${student.no}
 🆔 เลขประจำตัว: ${studentID}
 📅 วันที่ยืม: ${date}
 🕒 เวลา: ${startTime} - ${endTime}
-  `;
+      `;
 
-  await fetch("https://discord.com/api/webhooks/1377589232578596874/BUbcVluNa3Kagxsamh8Ls6G2ig6yUjfejHsocf8EWSt4Ha5enu1JhEbYYqCCbECqA1OC", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ content: message })
-  });
+      await fetch("https://discord.com/api/webhooks/1377589232578596874/BUbcVluNa3Kagxsamh8Ls6G2ig6yUjfejHsocf8EWSt4Ha5enu1JhEbYYqCCbECqA1OC", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content: message })
+      });
 
-  alert("ส่งคำขอยืมเรียบร้อยแล้ว!");
-  e.target.reset();
-});
-</script>
-</html>
+      alert("ส่งคำขอยืมเรียบร้อยแล้ว!");
+      e.target.reset();
+    });
